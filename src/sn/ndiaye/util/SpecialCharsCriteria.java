@@ -31,8 +31,4 @@ public class SpecialCharsCriteria extends PasswordCriteria{
         return super.toString();
     }
 
-    public static void main(String[] args) {
-        PasswordCriteria criteria = new SpecialCharsCriteria();
-        System.out.println(criteria.generate(5));
-    }
 }
