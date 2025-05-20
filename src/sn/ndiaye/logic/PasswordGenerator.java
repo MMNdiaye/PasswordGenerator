@@ -1,3 +1,5 @@
+package sn.ndiaye.logic;
+
 import sn.ndiaye.util.Criteria;
 import sn.ndiaye.util.DefaultCriteria;
 import sn.ndiaye.util.PasswordCriteria;
@@ -98,12 +100,6 @@ public class PasswordGenerator {
     private void showCriterion() {
         System.out.println("Length: " + passwordLength);
         System.out.println(criterionEnabling);
-    }
-
-    public static void main(String[] args) {
-        PasswordGenerator pg = new PasswordGenerator();
-        String password = pg.generate();
-        System.out.println("Password: " + password);
     }
 
 
