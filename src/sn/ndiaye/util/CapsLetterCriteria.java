@@ -21,9 +21,5 @@ public class CapsLetterCriteria extends PasswordCriteria{
         return stringBuilder.toString();
     }
 
-    public static void main(String[] args) {
-        CapsLetterCriteria criteria = new CapsLetterCriteria();
-        System.out.println(criteria.generate(5));
-    }
 
 }

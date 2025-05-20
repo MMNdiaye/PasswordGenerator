@@ -7,15 +7,15 @@ import java.util.*;
 public class PasswordGenerator {
     private int passwordLength;
     private final PasswordCriteria defaultCriteria = new DefaultCriteria();
-    private List<PasswordCriteria> criterion;
+    private List<PasswordCriteria> bonusCriterion;
     private HashMap<PasswordCriteria, Boolean> criterionEnabling;
     private int activeCriterionCount;
     private Scanner scanner;
 
     public PasswordGenerator() {
-        criterion = new ArrayList<>();
+        bonusCriterion = new ArrayList<>();
         for (Criteria criteria : Criteria.values())
-            criterion.add(criteria.getValue());
+            bonusCriterion.add(criteria.getValue());
         criterionEnabling = new HashMap<>();
         criterionEnabling.put(defaultCriteria, true);
         activeCriterionCount = 1;
@@ -29,7 +29,7 @@ public class PasswordGenerator {
         StringBuilder password = new StringBuilder();
         int remainingLength = passwordLength;
         int minCriteriaLength = passwordLength / activeCriterionCount;
-        for (PasswordCriteria criteria : criterion) {
+        for (PasswordCriteria criteria : bonusCriterion) {
             if (criterionEnabling.get(criteria)){
                 String gen = criteria.generate(minCriteriaLength);
                 password.append(gen);
@@ -85,7 +85,7 @@ public class PasswordGenerator {
 
     private void askCriterion() {
         activeCriterionCount = 1;
-        for (PasswordCriteria criteria : criterion) {
+        for (PasswordCriteria criteria : bonusCriterion) {
             System.out.println("Would you like to add this criteria : " +
                     criteria + " ? yes/no");
             boolean isCriteriaEnabled = scanner.next().toLowerCase().equals("yes");
